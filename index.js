@@ -753,42 +753,34 @@
     // Cache for blob URLs so we don't refetch the same image
     const _blobCache = {};
 
-    function resolveBlobUrl(url) {
-      if (!url) return null;
-      if (_blobCache[url]) return _blobCache[url];
-      const blobUrl = URL.createObjectURL(new Blob([], { type: 'application/octet-stream' }));
-      // will be replaced once fetch completes
-      fetch(url).then(r => { if (r.ok) return r.blob(); throw new Error('fetch failed'); })
-        .then(blob => {
-          URL.revokeObjectURL(blobUrl);
-          const realUrl = URL.createObjectURL(blob);
-          _blobCache[url] = realUrl;
-        })
-        .catch(() => {});
-      return blobUrl;
-    }
-
     function loadImg(src) {
       return new Promise((resolve) => {
         if (!src) return resolve(null);
-        // If it's already a blob URL (same-origin, canvas-safe), load directly
-        if (src.startsWith('blob:')) {
+
+        // If already cached as blob URL, load directly
+        if (_blobCache[src]) {
           const img = new Image();
           img.onload  = () => resolve(img);
           img.onerror = () => resolve(null);
-          img.src = src;
+          img.src = _blobCache[src];
           return;
         }
-        // For remote URLs, convert to blob URL first (canvas-safe)
-        const blobUrl = resolveBlobUrl(src);
-        if (!blobUrl) return resolve(null);
-        const img = new Image();
-        img.onload  = () => resolve(img);
-        img.onerror = () => {
-          URL.revokeObjectURL(blobUrl);
-          resolve(null);
-        };
-        img.src = blobUrl;
+
+        // For remote URLs: fetch first, create blob URL, then load image
+        fetch(src)
+          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
+          .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            _blobCache[src] = blobUrl;
+            const img = new Image();
+            img.onload  = () => resolve(img);
+            img.onerror = () => {
+              URL.revokeObjectURL(blobUrl);
+              resolve(null);
+            };
+            img.src = blobUrl;
+          })
+          .catch(() => resolve(null));
       });
     }
 
