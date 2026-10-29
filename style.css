@@ -1,0 +1,2152 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+      @font-face {
+
+            font-family: 'GreenpeaceSans';
+            src: url('https://www.greenpeace.org/static/planet4-assets/GreenpeaceSans.woff2') format('woff2');
+            font-weight: 400 900;
+            font-style: normal;
+            font-display: swap;
+      
+      }
+      .shiptour-lp-root * {
+
+            cursor: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/dd9a61ff-gpsea2023-rainbowwarrior2-1.png') 16 16, url('data:image/png;base64,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') 16 16, auto !important;
+      
+      }
+      :root {
+
+            --font-display: 'GreenpeaceSans', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-body: 'Plus Jakarta Sans', 'GreenpeaceSans', system-ui, -apple-system, sans-serif;
+            --color-blue: #0038ff;
+            --color-blue-hover: #002ad1;
+            --color-blue-dark: #001f8f;
+            --color-lime: #b4f000;
+            --color-yellow: #ffe600;
+            --color-coral: #ff5733;
+            --color-coral-hover: #e64522;
+            --color-dark: #111827;
+            --color-gray: #4b5563;
+            --color-light-gray: #f3f4f6;
+            --color-border: #e5e7eb;
+            --color-bg-sand: #f7f5ee;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      }
+      .entry-content .shiptour-lp-root,
+      .wp-block-post-content .shiptour-lp-root,
+      .page-content .shiptour-lp-root,
+      .site-main .shiptour-lp-root,
+      .site-content .shiptour-lp-root,
+      .content-area .shiptour-lp-root,
+      .post-content .shiptour-lp-root,
+      .block-raw-html .shiptour-lp-root,
+      .elementor-widget-container .shiptour-lp-root,
+      .container .shiptour-lp-root {
+
+            width: 100vw !important;
+            position: relative !important;
+            left: 50% !important;
+            right: 50% !important;
+            margin-left: -50vw !important;
+            margin-right: -50vw !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+      
+      }
+      .editor-styles-wrapper .shiptour-lp-root,
+      .block-editor-block-list__layout .shiptour-lp-root {
+
+            width: 100% !important;
+            max-width: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+      
+      }
+      .shiptour-lp-root {
+
+            width: 100%;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+            color: var(--color-dark);
+            background: transparent;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+            overflow-x: hidden;
+            cursor: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/dd9a61ff-gpsea2023-rainbowwarrior2-1.png') 16 16, url('data:image/png;base64,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') 16 16, auto;
+      
+      }
+      .shiptour-lp-root *,
+      .shiptour-lp-root *::before,
+      .shiptour-lp-root *::after {
+
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+      
+      }
+      .shiptour-lp-root img {
+
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            border: 0;
+      
+      }
+      .shiptour-lp-root a {
+
+            text-decoration: none !important;
+            box-shadow: none !important;
+            color: inherit;
+      
+      }
+      .shiptour-lp-root a,
+      .shiptour-lp-root button,
+      .shiptour-lp-root [role="button"],
+      .shiptour-lp-root input[type="submit"],
+      .shiptour-lp-root .btn-blue,
+      .shiptour-lp-root .btn-card,
+      .shiptour-lp-root .btn-send,
+      .shiptour-lp-root .slider-btn,
+      .shiptour-lp-root .people-arrow-btn {
+
+            cursor: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/dd9a61ff-gpsea2023-rainbowwarrior2-1.png') 16 16, url('data:image/png;base64,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') 16 16, pointer !important;
+      
+      }
+      .shiptour-lp-root button,
+      .shiptour-lp-root input,
+      .shiptour-lp-root select,
+      .shiptour-lp-root textarea {
+
+            font-family: inherit;
+            border: none;
+            outline: none;
+      
+      }
+      .shiptour-lp-root .container {
+
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root p,
+      .shiptour-lp-root h1,
+      .shiptour-lp-root h2,
+      .shiptour-lp-root h3,
+      .shiptour-lp-root h4,
+      .entry-content .shiptour-lp-root p,
+      .entry-content .shiptour-lp-root h1,
+      .entry-content .shiptour-lp-root h2,
+      .entry-content .shiptour-lp-root h3,
+      .entry-content .shiptour-lp-root h4 {
+
+            margin: 0;
+            padding: 0;
+      
+      }
+      .shiptour-lp-root #hubspotFormIframe {
+
+            width: 100% !important;
+            max-width: 880px !important;
+            margin: 0 auto 30px !important;
+            min-height: 720px !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            display: block !important;
+            background: transparent !important;
+      
+      }
+      .shiptour-lp-root .btn-blue {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-blue);
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 56, 255, 0.35);
+            transition: var(--transition);
+      
+      }
+      .shiptour-lp-root .btn-blue:hover {
+
+            background-color: var(--color-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 56, 255, 0.45);
+      
+      }
+      .shiptour-lp-root .highlight-wrapper {
+
+            position: relative;
+            display: inline-block;
+            padding: 8px 18px;
+      
+      }
+      .shiptour-lp-root .highlight-svg {
+
+            position: absolute;
+            top: -14%;
+            left: -8%;
+            width: 116%;
+            height: 128%;
+            pointer-events: none;
+            z-index: 1;
+      
+      }
+      .shiptour-lp-root .highlight-text {
+
+            position: relative;
+            z-index: 2;
+      
+      }
+      .shiptour-lp-root .hero-section {
+
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1366 / 780;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/2c8834d1-sea_ship-tour-2026-2027-01.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden;
+      
+      }
+      .shiptour-lp-root .hero-content {
+
+            position: absolute;
+            top: 55%;
+            left: 6.5%;
+            transform: translateY(-50%);
+            max-width: 37%;
+            z-index: 2;
+      
+      }
+      .shiptour-lp-root .hero-title,
+      .shiptour-lp-root .entry-content .hero-title,
+      .shiptour-lp-root .wp-block-post-content .hero-title,
+      .shiptour-lp-root .hero-title,
+      .entry-content .shiptour-lp-root .hero-title,
+      .wp-block-post-content .shiptour-lp-root .hero-title {
+
+            font-family: var(--font-display) !important;
+            font-size: clamp(1.5rem, 4vw, 4.2rem) !important;
+            font-weight: 900 !important;
+            line-height: 1.05 !important;
+            letter-spacing: -0.02em !important;
+            margin: 0 0 clamp(10px, 2vw, 26px) 0 !important;
+            text-transform: uppercase !important;
+            color: #ffffff !important;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.55) !important;
+            border: none !important;
+            padding: 0 !important;
+      
+      }
+      .shiptour-lp-root .hero-subtitle,
+      .shiptour-lp-root .entry-content .hero-subtitle,
+      .shiptour-lp-root .wp-block-post-content .hero-subtitle,
+      .shiptour-lp-root .hero-subtitle,
+      .entry-content .shiptour-lp-root .hero-subtitle,
+      .wp-block-post-content .shiptour-lp-root .hero-subtitle {
+
+            font-family: var(--font-body) !important;
+            font-size: clamp(0.85rem, 1.45vw, 1.35rem) !important;
+            font-weight: 500 !important;
+            line-height: 1.42 !important;
+            margin: 0 0 clamp(14px, 2.6vw, 36px) 0 !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.55) !important;
+            border: none !important;
+            padding: 0 !important;
+      
+      }
+      .shiptour-lp-root .hero-content .btn-blue,
+      .shiptour-lp-root .hero-content .btn-blue {
+
+            font-size: clamp(0.72rem, 1.15vw, 1.05rem) !important;
+            padding: clamp(8px, 1.2vw, 16px) clamp(16px, 2.4vw, 36px) !important;
+            color: #ffffff !important;
+            background-color: var(--color-blue) !important;
+      
+      }
+      .shiptour-lp-root .video-section {
+
+            position: relative;
+            width: 100%;
+            background-color: #000000;
+            line-height: 0;
+      
+      }
+      .shiptour-lp-root .video-wrapper {
+
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 92vh;
+            margin: 0 auto;
+      
+      }
+      .shiptour-lp-root .video-wrapper iframe {
+
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+      
+      }
+      .shiptour-lp-root .people-section {
+
+            position: relative;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/ec93d42b-sea_ship-tour-2026-2027-03.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 90px 0 105px;
+            overflow: hidden;
+      
+      }
+      .shiptour-lp-root .people-section::before {
+
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(3, 16, 22, 0.58) 0%, rgba(2, 22, 28, 0.44) 50%, rgba(1, 14, 18, 0.68) 100%);
+            pointer-events: none;
+      
+      }
+      .shiptour-lp-root .people-title-wrap {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+            gap: 16px;
+      
+      }
+      .shiptour-lp-root .people-title,
+      .shiptour-lp-root .entry-content .people-title,
+      .shiptour-lp-root .wp-block-post-content .people-title,
+      .shiptour-lp-root .people-title,
+      .entry-content .shiptour-lp-root .people-title,
+      .wp-block-post-content .shiptour-lp-root .people-title {
+
+            font-family: var(--font-display) !important;
+            font-size: clamp(2.4rem, 4.8vw, 3.8rem) !important;
+            font-weight: 900 !important;
+            color: #ffffff !important;
+            letter-spacing: -0.01em !important;
+            line-height: 1.1 !important;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+      
+      }
+      .shiptour-lp-root .people-counter-badge {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(5, 15, 20, 0.78);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            padding: 7px 22px;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.08em;
+            user-select: none;
+            transition: border-color 0.25s ease;
+      
+      }
+      .shiptour-lp-root .people-counter-badge .counter-curr {
+
+            color: #ffe600;
+            font-weight: 900;
+            font-size: 1.45rem;
+            line-height: 1;
+      
+      }
+      .shiptour-lp-root .people-counter-badge .counter-sep {
+
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0 7px;
+            font-weight: 700;
+      
+      }
+      .shiptour-lp-root .people-counter-badge .counter-total {
+
+            color: #ffffff;
+            line-height: 1;
+      
+      }
+      .shiptour-lp-root .people-slider-shell {
+
+            position: relative;
+            z-index: 2;
+            padding: 0 58px;
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .people-arrow-btn {
+
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #ffffff;
+            color: #0038ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+            padding: 0;
+            touch-action: manipulation;
+      
+      }
+      .shiptour-lp-root .people-arrow-btn:hover {
+
+            background: #ffe600;
+            color: #001f8f;
+            border-color: #ffe600;
+            transform: translateY(-50%) scale(1.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.38);
+      
+      }
+      .shiptour-lp-root .people-arrow-btn:active {
+
+            transform: translateY(-50%) scale(0.96);
+      
+      }
+      .shiptour-lp-root .people-arrow-btn:disabled,
+      .shiptour-lp-root .people-arrow-btn.is-disabled {
+
+            opacity: 0.55 !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            background: rgba(255, 255, 255, 0.75) !important;
+            border-color: rgba(255, 255, 255, 0.75) !important;
+            color: #0038ff !important;
+            transform: translateY(-50%) !important;
+            box-shadow: none !important;
+      
+      }
+      .shiptour-lp-root .people-slider-shell > .people-arrow-btn {
+
+            position: absolute;
+            top: 50%;
+            z-index: 20;
+            transform: translateY(-50%);
+            pointer-events: auto;
+      
+      }
+      .shiptour-lp-root .people-arrow-prev {
+
+            left: 0;
+      
+      }
+      .shiptour-lp-root .people-arrow-next {
+
+            right: 0;
+      
+      }
+      .shiptour-lp-root .people-arrow-btn svg {
+
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            pointer-events: none;
+      
+      }
+      .shiptour-lp-root .slider-container {
+
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            cursor: grab;
+            touch-action: pan-y pinch-zoom;
+            padding: 12px 2px 20px;
+            user-select: none;
+            -webkit-user-select: none;
+            width: 100%;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .slider-container.is-dragging {
+
+            cursor: grabbing !important;
+      
+      }
+      .shiptour-lp-root .slider-container.is-dragging * {
+
+            user-select: none !important;
+            pointer-events: none !important;
+      
+      }
+      .shiptour-lp-root .slider-container.is-dragging .slider-track {
+
+            transition: none !important;
+      
+      }
+      .shiptour-lp-root .slider-track,
+      .shiptour-lp-root .slider-track,
+      .entry-content .shiptour-lp-root .slider-track {
+
+            position: relative !important;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            width: max-content !important;
+            min-width: 100% !important;
+            max-width: none !important;
+            gap: 26px;
+            margin: 0 !important;
+            padding: 0 4px !important;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+      
+      }
+      .shiptour-lp-root .slider-track * {
+
+            -webkit-user-drag: none;
+      
+      }
+      .shiptour-lp-root .story-card {
+
+            flex: 0 0 clamp(320px, 32vw, 385px);
+            width: clamp(320px, 32vw, 385px);
+            scroll-snap-align: start;
+            scroll-snap-stop: normal;
+            background-color: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            user-select: none;
+      
+      }
+      .shiptour-lp-root .story-card:hover {
+
+            transform: translateY(-8px);
+            box-shadow: 0 22px 46px rgba(0, 0, 0, 0.35), 0 4px 14px rgba(0, 0, 0, 0.18);
+      
+      }
+      .shiptour-lp-root .story-card-image {
+
+            position: relative;
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            background-color: #e5e7eb;
+      
+      }
+      .shiptour-lp-root .story-card-image img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            display: block;
+      
+      }
+      .shiptour-lp-root .story-card:hover .story-card-image img {
+
+            transform: scale(1.06);
+      
+      }
+      .shiptour-lp-root .story-card-body {
+
+            padding: 24px 22px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+      
+      }
+      .shiptour-lp-root .story-category {
+
+            color: #0038ff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+      
+      }
+      .shiptour-lp-root .story-card-title,
+      .shiptour-lp-root .entry-content .story-card-title,
+      .shiptour-lp-root .wp-block-post-content .story-card-title,
+      .shiptour-lp-root .story-card-title,
+      .entry-content .shiptour-lp-root .story-card-title,
+      .wp-block-post-content .shiptour-lp-root .story-card-title {
+
+            font-family: var(--font-display) !important;
+            font-size: 1.3rem !important;
+            font-weight: 900 !important;
+            line-height: 1.25 !important;
+            color: #111827 !important;
+            margin: 0 0 14px 0 !important;
+            min-height: 58px;
+            padding: 0 !important;
+            border: none !important;
+      
+      }
+      .shiptour-lp-root .story-card-excerpt,
+      .shiptour-lp-root .entry-content .story-card-excerpt,
+      .shiptour-lp-root .wp-block-post-content .story-card-excerpt,
+      .shiptour-lp-root .story-card-excerpt,
+      .entry-content .shiptour-lp-root .story-card-excerpt,
+      .wp-block-post-content .shiptour-lp-root .story-card-excerpt {
+
+            font-family: var(--font-body) !important;
+            font-size: 0.88rem !important;
+            color: #4b5563 !important;
+            line-height: 1.55 !important;
+            margin: 0 0 24px 0 !important;
+            flex-grow: 1;
+            padding: 0 !important;
+            border: none !important;
+      
+      }
+      .shiptour-lp-root .btn-card {
+
+            width: 100%;
+            background-color: var(--color-blue);
+            color: #ffffff !important;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 15px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.25s ease;
+            margin-top: auto;
+            display: block;
+            box-shadow: 0 4px 14px rgba(0, 56, 255, 0.32);
+            text-decoration: none !important;
+      
+      }
+      .shiptour-lp-root .btn-card:hover {
+
+            background-color: var(--color-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 56, 255, 0.48);
+      
+      }
+      .shiptour-lp-root .btn-card:active {
+
+            transform: translateY(0);
+      
+      }
+      .shiptour-lp-root .carousel-progress-wrap {
+
+            position: relative;
+            z-index: 2;
+            width: auto;
+            margin: 36px 58px 0;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.35);
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.22);
+            user-select: none;
+            touch-action: none;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            overflow: hidden;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+      
+      }
+      .shiptour-lp-root .carousel-progress-wrap:hover {
+
+            background: rgba(255, 255, 255, 0.48);
+            border-color: rgba(255, 255, 255, 0.9);
+      
+      }
+      .shiptour-lp-root .carousel-progress-wrap.is-scrubbing {
+
+            cursor: grabbing !important;
+      
+      }
+      .shiptour-lp-root .carousel-progress-wrap.is-scrubbing .carousel-progress-bar {
+
+            transition: none !important;
+            cursor: grabbing !important;
+      
+      }
+      .shiptour-lp-root .carousel-progress-bar {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25%;
+            height: 100%;
+            background: linear-gradient(90deg, #0038ff 0%, #2962ff 100%);
+            border-radius: 999px;
+            box-shadow: 0 0 16px rgba(0, 56, 255, 0.75);
+            cursor: grab;
+            transition: left 0.45s cubic-bezier(0.25, 1, 0.5, 1), width 0.25s ease-out;
+            pointer-events: none;
+      
+      }
+      .shiptour-lp-root .story-card.is-active {
+
+            box-shadow: 0 18px 38px rgba(0, 56, 255, 0.22), 0 4px 12px rgba(0, 0, 0, 0.14);
+      
+      }
+      .shiptour-lp-root .marquee-header {
+
+            text-align: center;
+            margin-bottom: 24px;
+      
+      }
+      .shiptour-lp-root .live-ticker-badge {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #0038ff;
+            color: #ffffff;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 16px rgba(0, 56, 255, 0.3);
+      
+      }
+      .shiptour-lp-root .live-indicator-dot {
+
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ffe600;
+            box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.8);
+            animation: livePulseDot 1.8s infinite;
+      
+      }
+
+
+      @keyframes livePulseDot {
+            0% { box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.8); }
+            70% { box-shadow: 0 0 0 8px rgba(255, 230, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+      }
+      .shiptour-lp-root .pattern-strip-section {
+
+            width: 100%;
+            height: clamp(75px, 8.5vw, 125px);
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/a96ab1da-sea_ship-tour-2026-2027-05.jpg');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: top center;
+      
+      }
+      .shiptour-lp-root .message-section {
+
+            position: relative;
+            background: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/20e6db66-sea_ship-tour-2026-2027-05-postcard-no-line.jpg') center top / cover no-repeat;
+            padding: 50px 0 0;
+      
+      }
+      .shiptour-lp-root .marquee-outer-wrap {
+
+            background: #ffffff !important;
+            margin: 0;
+            padding: 40px 0 20px;
+      
+      }
+      .shiptour-lp-root .message-section-inner {
+
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+            background: transparent;
+      
+      }
+      .shiptour-lp-root #hubspotFormIframe {
+
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            width: 100% !important;
+            max-width: 880px;
+            margin: 0 auto;
+            display: block;
+            background: transparent !important;
+            overflow: hidden !important;
+            min-height: 750px;
+      
+      }
+      .shiptour-lp-root .message-header {
+
+            text-align: center;
+            max-width: 920px;
+            margin: 0 auto 28px;
+      
+      }
+      .shiptour-lp-root .message-title {
+
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 900;
+            color: #0038ff;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+      
+      }
+      .shiptour-lp-root .message-subtitle {
+
+            font-size: 1.02rem;
+            color: #222222;
+            line-height: 1.45;
+            font-weight: 500;
+            max-width: 820px;
+      
+      }
+      .shiptour-lp-root .postcard-container {
+
+            max-width: 920px;
+            margin: 0 auto;
+            aspect-ratio: 1156 / 717;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 38px 44px 34px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7%;
+            position: relative;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .postcard-left {
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+      
+      }
+      .shiptour-lp-root .postcard-label {
+
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+      
+      }
+      .shiptour-lp-root .postcard-right {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+      
+      }
+      .shiptour-lp-root .stamp-wrap {
+
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 6px;
+      
+      }
+      .shiptour-lp-root .stamp-box {
+
+            width: 76px;
+            height: 90px;
+            background-color: #ffffff;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+      
+      }
+      .shiptour-lp-root .stamp-img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+      
+      }
+      .shiptour-lp-root .thankyou-section {
+
+            display: none;
+            animation: fadeInPostcard 0.5s ease forwards;
+      
+      }
+
+
+      @keyframes fadeInPostcard {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+      }
+      .shiptour-lp-root .thankyou-banner {
+
+            background: #ffffff;
+            border: 2px solid #0038ff;
+            border-radius: var(--radius-sm);
+            padding: 30px 32px;
+            margin: 0 auto 36px;
+            max-width: 920px;
+            box-shadow: 0 10px 30px rgba(0, 56, 255, 0.1);
+            text-align: center;
+      
+      }
+      .shiptour-lp-root .thankyou-tag {
+
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #0038ff;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+      
+      }
+      .shiptour-lp-root .thankyou-title {
+
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            line-height: 1.2;
+      
+      }
+      .shiptour-lp-root .thankyou-desc {
+
+            font-size: 1.05rem;
+            color: #374151;
+            line-height: 1.55;
+            max-width: 760px;
+            margin: 0 auto;
+      
+      }
+      .shiptour-lp-root .user-postcard-preview-wrap {
+
+            max-width: 920px;
+            margin: 0 auto 40px;
+            text-align: center;
+      
+      }
+      .shiptour-lp-root .preview-header-label {
+
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+      
+      }
+      .shiptour-lp-root .postcard-display {
+
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      }
+      .shiptour-lp-root .postcard-display:hover {
+
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(0, 56, 255, 0.22);
+      
+      }
+      .shiptour-lp-root .postcard-message-display {
+
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            padding: 16px 18px;
+            font-size: 0.96rem;
+            line-height: 1.5;
+            color: #111827;
+            overflow-y: auto;
+            text-align: left;
+            font-family: var(--font-body);
+            white-space: pre-wrap;
+            word-break: break-word;
+      
+      }
+      .shiptour-lp-root .display-meta-group {
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            text-align: left;
+      
+      }
+      .shiptour-lp-root .display-field {
+
+            background: #ffffff;
+            padding: 8px 12px;
+      
+      }
+      .shiptour-lp-root .display-field-label {
+
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #0038ff;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 2px;
+      
+      }
+      .shiptour-lp-root .display-field-val {
+
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #111827;
+            word-break: break-word;
+      
+      }
+      .shiptour-lp-root .click-share-callout {
+
+            margin-top: 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #0038ff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+      
+      }
+      .shiptour-lp-root .btn-send-another {
+
+            margin-top: 24px;
+            background: #111827;
+      
+      }
+      .shiptour-lp-root .btn-send-another:hover {
+
+            background: #000000;
+      
+      }
+      .shiptour-lp-root .marquee-outer-wrap {
+
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 56, 255, 0.12);
+            width: 100%;
+            position: relative;
+            background: #ffffff;
+            padding-bottom: 20px;
+      
+      }
+      .shiptour-lp-root .marquee-container {
+
+            flex: 1;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-snap-type: x mandatory;
+      
+      }
+      .shiptour-lp-root .marquee-container::-webkit-scrollbar {
+
+            display: none;
+      
+      }
+      .shiptour-lp-root .marquee-arrow {
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #0038ff;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            z-index: 15;
+      
+      }
+      .shiptour-lp-root .marquee-arrow:hover {
+
+            background-color: #0028cc;
+            transform: scale(1.08);
+      
+      }
+      .shiptour-lp-root .marquee-arrow-prev {
+
+            left: 20px;
+      
+      }
+      .shiptour-lp-root .marquee-arrow-next {
+
+            right: 20px;
+      
+      }
+      .shiptour-lp-root .marquee-outer-wrap {
+
+            max-width: none;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            overflow: hidden;
+      
+      }
+      .shiptour-lp-root .marquee-header {
+
+            text-align: center;
+            margin-bottom: 30px;
+      
+      }
+      .shiptour-lp-root .marquee-title {
+
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 900;
+            color: #0038ff;
+            margin-bottom: 8px;
+      
+      }
+      .shiptour-lp-root .marquee-subtitle {
+
+            font-size: 1.05rem;
+            color: #4b5563;
+            font-weight: 500;
+      
+      }
+      .shiptour-lp-root .marquee-container {
+
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            padding: 24px 0 40px;
+            cursor: grab;
+            scrollbar-width: none;
+      
+      }
+      .shiptour-lp-root .marquee-container::-webkit-scrollbar {
+
+            display: none;
+      
+      }
+      .shiptour-lp-root .marquee-container:active {
+
+            cursor: grabbing;
+      
+      }
+      .shiptour-lp-root .marquee-container::-webkit-scrollbar {
+
+            height: 8px;
+      
+      }
+      .shiptour-lp-root .marquee-container::-webkit-scrollbar-track {
+
+            background: transparent;
+      
+      }
+      .shiptour-lp-root .marquee-container::-webkit-scrollbar-thumb {
+
+            background: rgba(0,56,255,0.35);
+            border-radius: 4px;
+      
+      }
+      .shiptour-lp-root .marquee-track,
+      .shiptour-lp-root .marquee-track,
+      .entry-content .shiptour-lp-root .marquee-track {
+
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 30px;
+            width: max-content !important;
+            max-width: none !important;
+            will-change: transform;
+      
+      }
+      .shiptour-lp-root .marquee-card {
+
+            width: clamp(380px, 44vw, 520px);
+            aspect-ratio: 1156 / 717;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 18px 24px 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7%;
+            box-sizing: border-box;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            flex-shrink: 0;
+            position: relative;
+      
+      }
+      .shiptour-lp-root .marquee-card:hover {
+
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 36px rgba(0, 56, 255, 0.25);
+      
+      }
+      .shiptour-lp-root .m-card-left {
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-width: 0;
+      
+      }
+      .shiptour-lp-root .m-card-label {
+
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 6px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            display: block;
+      
+      }
+      .shiptour-lp-root .m-card-message {
+
+            background: #ffffff;
+            padding: 12px 14px;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            line-height: 1.45;
+            color: #111827;
+            flex-grow: 1;
+            height: 100%;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .m-card-right {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-width: 0;
+      
+      }
+      .shiptour-lp-root .m-stamp-wrap {
+
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 6px;
+      
+      }
+      .shiptour-lp-root .m-stamp {
+
+            width: 44px;
+            height: 52px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .m-stamp img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+      
+      }
+      .shiptour-lp-root .m-form-group {
+
+            margin-top: 4px;
+      
+      }
+      .shiptour-lp-root .m-field-label {
+
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 2px;
+      
+      }
+      .shiptour-lp-root .m-field-box {
+
+            background: #ffffff;
+            height: 26px;
+            padding: 0 10px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .share-modal-overlay {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 20, 40, 0.75);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 99999 !important;
+            display: none !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            animation: fadeInModal 0.25s ease;
+      
+      }
+
+
+      @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+      }
+      .shiptour-lp-root .share-modal-dialog {
+
+            background: #ffffff;
+            width: 100%;
+            max-width: 640px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            position: relative;
+            padding: 32px 28px;
+            animation: scaleUpModal 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+            box-sizing: border-box;
+            margin: 0 auto;
+      
+      }
+
+
+      @keyframes scaleUpModal {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+      }
+      .shiptour-lp-root .modal-close-btn {
+
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            color: #4b5563;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px;
+            z-index: 10;
+      
+      }
+      .shiptour-lp-root .modal-close-btn:hover {
+
+            color: #0038ff;
+            transform: scale(1.15);
+      
+      }
+      .shiptour-lp-root .modal-postcard-container {
+
+            aspect-ratio: 1156 / 717;
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            padding: 24px 26px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            box-sizing: border-box;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin-bottom: 24px;
+            position: relative;
+      
+      }
+      .shiptour-lp-root .modal-postcard-container::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            bottom: 14px;
+            left: 50%;
+            width: 3px;
+            background: #0038ff;
+            transform: translateX(-50%);
+      }
+      .shiptour-lp-root .btn-support-work {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background-color: #0038ff;
+            color: #ffffff !important;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 16px 24px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 56, 255, 0.35);
+            transition: var(--transition);
+            margin-bottom: 24px;
+      
+      }
+      .shiptour-lp-root .btn-support-work:hover {
+
+            background-color: #002ad1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 56, 255, 0.45);
+      
+      }
+      .shiptour-lp-root .btn-support-work svg {
+
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
+      
+      }
+      .shiptour-lp-root .btn-download-postcard {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: #111827;
+            color: #ffffff !important;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 13px 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+      
+      }
+      .shiptour-lp-root .btn-download-postcard:hover {
+
+            background: #0038ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 56, 255, 0.35);
+      
+      }
+      .shiptour-lp-root .btn-download-postcard svg {
+
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+      
+      }
+      .shiptour-lp-root .modal-share-heading {
+
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            text-align: center;
+      
+      }
+      .shiptour-lp-root .social-share-buttons {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+      
+      }
+      .shiptour-lp-root .btn-social {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+      
+      }
+      .shiptour-lp-root .btn-social svg {
+
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+      
+      }
+      .shiptour-lp-root .btn-social img {
+
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            display: block;
+      
+      }
+      .shiptour-lp-root .btn-social:hover {
+
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+      
+      }
+      .shiptour-lp-root .btn-whatsapp {
+      background-color: #25D366; 
+      }
+      .shiptour-lp-root .btn-instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+      }
+      .shiptour-lp-root .btn-x {
+      background-color: #000000; color: #ffffff !important; border: 1px solid #333333; 
+      }
+      .shiptour-lp-root .btn-threads {
+      background: #fff; color: #101010; border: 1px solid #d0d0d0; 
+      }
+      .shiptour-lp-root .btn-threads img {
+      object-fit: contain; 
+      }
+      .shiptour-lp-root .prefilled-share-box {
+
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            text-align: left;
+      
+      }
+      .shiptour-lp-root .share-arrows-row {
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+      
+      }
+      .shiptour-lp-root .share-arrows-row .prefilled-share-box {
+
+            flex: 1;
+      
+      }
+      .shiptour-lp-root .share-arrow {
+
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #0038ff;
+            border: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+      
+      }
+      .shiptour-lp-root .share-arrow:hover {
+
+            background-color: #0028cc;
+            transform: scale(1.1);
+      
+      }
+      .shiptour-lp-root .prefilled-caption-title {
+
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+            display: block;
+      
+      }
+      .shiptour-lp-root .prefilled-caption-text {
+
+            font-size: 0.82rem;
+            color: #374151;
+            line-height: 1.45;
+      
+      }
+      .shiptour-lp-root .copy-toast {
+
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #111827;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 100000;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+      
+      }
+      .shiptour-lp-root .copy-toast.show {
+
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+      
+      }
+      .shiptour-lp-root .carriers-section,
+      .shiptour-lp-root .carriers-section,
+      .entry-content .shiptour-lp-root .carriers-section,
+      .wp-block-post-content .shiptour-lp-root .carriers-section {
+
+            background-color: #0038ff !important;
+            padding: 85px 0 115px !important;
+            color: #ffffff !important;
+            position: relative !important;
+            z-index: 2 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            display: block !important;
+      
+      }
+      .shiptour-lp-root .carriers-title-wrap {
+
+            text-align: center !important;
+            margin-bottom: 46px !important;
+      
+      }
+      .shiptour-lp-root .carriers-title,
+      .shiptour-lp-root .entry-content .carriers-title,
+      .shiptour-lp-root .wp-block-post-content .carriers-title,
+      .shiptour-lp-root .carriers-title,
+      .entry-content .shiptour-lp-root .carriers-title,
+      .wp-block-post-content .shiptour-lp-root .carriers-title {
+
+            font-family: var(--font-display) !important;
+            font-size: clamp(2.6rem, 5.2vw, 4rem) !important;
+            font-weight: 900 !important;
+            color: var(--color-lime) !important;
+            letter-spacing: -0.02em !important;
+            line-height: 1.1 !important;
+            text-transform: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            text-align: center !important;
+      
+      }
+      .shiptour-lp-root .carriers-grid {
+
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 36px 28px !important;
+            align-items: start !important;
+            width: 100% !important;
+      
+      }
+      .shiptour-lp-root .carrier-card {
+
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            width: 100% !important;
+            height: 100% !important;
+      
+      }
+      .shiptour-lp-root .carrier-card .carrier-bio {
+
+            flex: 1;
+      
+      }
+      .shiptour-lp-root .carrier-avatar {
+
+            width: 155px !important;
+            height: 155px !important;
+            border-radius: 50% !important;
+            background-color: var(--color-lime) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            margin: 0 0 20px 0 !important;
+            flex-shrink: 0 !important;
+      
+      }
+      .shiptour-lp-root .carrier-avatar-th {
+
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/8f2fa9cc-th-gp0stxoxy_medium-res-with-credit-line-1200px.jpg') !important;
+      
+      }
+      .shiptour-lp-root .carrier-avatar-my {
+
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/9c59e013-my-ade9657f-image-1536x1152-1.jpeg') !important;
+            background-position: 100% 50% !important;
+      
+      }
+      .shiptour-lp-root .carrier-avatar-ph {
+
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/34726085-ph-gp0su772o_medium-res-with-credit-line-1200px.jpg') !important;
+      
+      }
+      .shiptour-lp-root .carrier-avatar-id {
+
+            background-image: url('https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/c7770a33-id-gp0su6wj2_medium-res-with-credit-line-1200px-1.jpg') !important;
+      
+      }
+      .shiptour-lp-root .carrier-name-row {
+
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+            margin: 0 0 14px 0 !important;
+            width: 100% !important;
+            flex-wrap: nowrap !important;
+      
+      }
+      .shiptour-lp-root .carrier-name,
+      .shiptour-lp-root .entry-content .carrier-name,
+      .shiptour-lp-root .wp-block-post-content .carrier-name,
+      .shiptour-lp-root .carrier-name,
+      .entry-content .shiptour-lp-root .carrier-name,
+      .wp-block-post-content .shiptour-lp-root .carrier-name {
+
+            font-family: var(--font-display) !important;
+            font-size: 1.15rem !important;
+            font-weight: 800 !important;
+            color: #ffffff !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.05em !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            line-height: 1 !important;
+      
+      }
+      .shiptour-lp-root .carrier-flag {
+
+            width: 34px !important;
+            height: 22px !important;
+            border-radius: 3px !important;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35) !important;
+            flex-shrink: 0 !important;
+            display: block !important;
+      
+      }
+      .shiptour-lp-root .carrier-headline,
+      .shiptour-lp-root .entry-content .carrier-headline,
+      .shiptour-lp-root .wp-block-post-content .carrier-headline,
+      .shiptour-lp-root .carrier-headline,
+      .entry-content .shiptour-lp-root .carrier-headline,
+      .wp-block-post-content .shiptour-lp-root .carrier-headline {
+
+            font-size: 0.85rem !important;
+            font-weight: 900 !important;
+            color: var(--color-lime) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.04em !important;
+            margin: 0 0 12px 0 !important;
+            line-height: 1.35 !important;
+            width: 100% !important;
+      
+      }
+      .shiptour-lp-root .carrier-bio,
+      .shiptour-lp-root .entry-content .carrier-bio,
+      .shiptour-lp-root .wp-block-post-content .carrier-bio,
+      .shiptour-lp-root .carrier-bio,
+      .entry-content .shiptour-lp-root .carrier-bio,
+      .wp-block-post-content .shiptour-lp-root .carrier-bio {
+
+            font-size: 0.85rem !important;
+            color: #ffffff !important;
+            line-height: 1.55 !important;
+            font-style: normal !important;
+            width: 100% !important;
+            margin: 0 !important;
+            opacity: 0.95 !important;
+            font-weight: 400 !important;
+      
+      }
+      .shiptour-lp-root .carrier-readmore {
+
+            display: inline-block;
+            margin-top: 14px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #b4f000;
+            text-decoration: none;
+            border-bottom: 2px solid #b4f000;
+            padding-bottom: 3px;
+            transition: color 0.15s, border-color 0.15s;
+      
+      }
+      .shiptour-lp-root .carrier-readmore:hover {
+
+            color: #ffffff;
+            border-color: #ffffff;
+      
+      }
+      @media (max-width: 1024px) {
+      .shiptour-lp-root .story-card {
+
+            flex: 0 0 clamp(300px, 45vw, 360px);
+            width: clamp(300px, 45vw, 360px);
+            
+      }
+      .shiptour-lp-root .carriers-grid {
+
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px 24px;
+            
+      }
+
+      
+      }
+      @media (max-width: 768px) {
+      .shiptour-lp-root .hero-section {
+
+            aspect-ratio: 1366 / 1003;
+            
+      }
+      .shiptour-lp-root .hero-content {
+
+            left: 5%;
+            max-width: 44%;
+            
+      }
+      .shiptour-lp-root .people-section {
+
+            padding: 60px 0 75px;
+            
+      }
+      .shiptour-lp-root .story-card {
+
+            flex: 0 0 84vw;
+            width: 84vw;
+            max-width: 340px;
+            scroll-snap-align: center;
+            
+      }
+      .shiptour-lp-root .people-slider-shell {
+
+            padding: 0 44px;
+            
+      }
+      .shiptour-lp-root .people-arrow-btn {
+
+            width: 40px;
+            height: 40px;
+            
+      }
+      .shiptour-lp-root .people-arrow-prev {
+
+            left: 0;
+            
+      }
+      .shiptour-lp-root .people-arrow-next {
+
+            right: 0;
+            
+      }
+      .shiptour-lp-root .people-arrow-btn svg {
+
+            width: 20px;
+            height: 20px;
+            
+      }
+      .shiptour-lp-root .carousel-progress-wrap {
+
+            margin: 28px 44px 0;
+            height: 12px;
+            
+      }
+      .shiptour-lp-root .postcard-container {
+
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding: 24px 18px;
+            aspect-ratio: auto;
+            min-height: 260px;
+            
+      }
+      .shiptour-lp-root .postcard-message-display {
+
+            min-height: 120px;
+            font-size: 0.85rem;
+            padding: 12px;
+            
+      }
+      .shiptour-lp-root .stamp-box {
+
+            width: 56px;
+            height: 68px;
+            
+      }
+      .shiptour-lp-root .display-field {
+
+            padding: 6px 10px;
+            
+      }
+      .shiptour-lp-root .display-field-label {
+
+            font-size: 0.62rem;
+            
+      }
+      .shiptour-lp-root .display-field-val {
+
+            font-size: 0.8rem;
+            
+      }
+      .shiptour-lp-root .carriers-grid {
+
+            grid-template-columns: 1fr !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
+            gap: 48px 0 !important;
+            
+      }
+      .shiptour-lp-root .carrier-card {
+
+            align-items: center !important;
+            text-align: center !important;
+            
+      }
+      .shiptour-lp-root .carrier-avatar {
+
+            margin: 0 auto 20px auto !important;
+            
+      }
+      .shiptour-lp-root .carrier-name-row {
+
+            justify-content: center !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 10px !important;
+            
+      }
+      .shiptour-lp-root .carrier-headline {
+
+            text-align: center !important;
+            
+      }
+      .shiptour-lp-root .carrier-bio {
+
+            text-align: center !important;
+            max-width: 340px !important;
+            margin: 0 auto !important;
+            
+      }
+      .shiptour-lp-root .marquee-card {
+
+            width: clamp(310px, 86vw, 400px);
+            padding: 16px 18px 14px;
+            
+      }
+      .shiptour-lp-root .m-card-label {
+
+            font-size: 0.72rem;
+            
+      }
+      .shiptour-lp-root .m-card-message {
+
+            font-size: 0.82rem;
+            padding: 8px 10px;
+            
+      }
+      .shiptour-lp-root .m-stamp {
+
+            width: 42px;
+            height: 50px;
+            
+      }
+      .shiptour-lp-root .m-field-label {
+
+            font-size: 0.65rem;
+            
+      }
+      .shiptour-lp-root .m-field-box {
+
+            height: 26px;
+            font-size: 0.78rem;
+            padding: 0 8px;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container {
+
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            padding: 18px 16px 16px;
+            aspect-ratio: auto;
+            min-height: 200px;
+            margin-bottom: 20px;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container .postcard-message-display {
+
+            min-height: 80px;
+            font-size: 0.8rem;
+            padding: 10px;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container .stamp-box {
+
+            width: 44px;
+            height: 52px;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container .display-field {
+
+            padding: 5px 8px;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container .display-field-label {
+
+            font-size: 0.58rem;
+            
+      }
+      .shiptour-lp-root .modal-postcard-container .display-field-val {
+
+            font-size: 0.72rem;
+            
+      }
+      .shiptour-lp-root .share-modal-dialog {
+
+            padding: 24px 18px;
+            
+      }
+      .shiptour-lp-root .social-share-buttons {
+
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            
+      }
+      .shiptour-lp-root .btn-social {
+
+            padding: 10px 8px;
+            font-size: 0.8rem;
+            
+      }
+      .shiptour-lp-root .btn-social svg,
+      .shiptour-lp-root .btn-social img {
+
+            width: 18px;
+            height: 18px;
+            
+      }
+
+      
+      }
+      @media (max-width: 480px) {
+      .shiptour-lp-root .people-slider-shell {
+
+            padding: 0 34px;
+            
+      }
+      .shiptour-lp-root .people-arrow-btn {
+
+            width: 34px;
+            height: 34px;
+            
+      }
+      .shiptour-lp-root .people-arrow-btn svg {
+
+            width: 16px;
+            height: 16px;
+            
+      }
+      .shiptour-lp-root .carousel-progress-wrap {
+
+            margin: 22px 34px 0;
+            
+      }
+
+      
+      }

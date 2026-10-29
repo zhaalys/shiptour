@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ship Tour</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="shiptour-lp-root">
+  <header class="hero-section" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Across borders.<br>
+        One journey.<br>
+        Many stories.
+      </h1>
+      <p class="hero-subtitle">
+        The Rainbow Warrior is carrying stories of resistance, courage and hope across Southeast Asia.
+      </p>
+      <a href="#message" class="btn-blue">ADD YOUR VOICE</a>
+    </div>
+  </header> 
+
+  <section class="video-section" id="video">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/-zfaLm1RVUY?rel=0&modestbranding=1" 
+        title="Rainbow Warrior Southeast Asia Tour" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <section class="people-section" id="people">
+    <div class="container">
+      <div class="people-title-wrap">
+<h2 class="people-title">Meet the People</h2>
+        <div class="people-counter-badge" id="peopleCounterBadge" aria-label="Stories position">
+          <span class="counter-curr" id="peopleCurrentNum">1</span><span class="counter-sep">/</span><span class="counter-total" id="peopleTotalNum">4</span>
+        </div>
+      </div>
+
+      <div class="people-slider-shell">
+        <button type="button" class="people-arrow-btn people-arrow-prev" id="peoplePrevBtn" aria-label="Previous story" title="Previous story">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+
+        <div class="slider-container" id="sliderContainer" data-shiptour-slider="true">
+          <div class="slider-track" id="sliderTrack">
+
+          <a href="https://act.gp/shiptour-people-my" target="_blank" rel="noopener" class="story-card" draggable="false">
+            <div class="story-card-image">
+              <img
+                src="https://www.greenpeace.org/static/planet4-malaysia-stateless/2026/08/12c813fb-image-1024x768.jpeg"
+                onerror="this.onerror=null; this.src='https://www.greenpeace.org/static/planet4-international-stateless/2026/09/c7b99bf8-gp0stwcsi.jpg';"
+                alt="Community engagement in Sabah"
+                loading="lazy"
+                draggable="false"
+              >
+            </div>
+            <div class="story-card-body">
+              <span class="story-category">MALAYSIA / MARINE PROTECTED AREA</span>
+              <h3 class="story-card-title">
+                An Odyssey of Community Engagements in Sabah's Marine Protected Area
+              </h3>
+              <p class="story-card-excerpt">
+                Local communities and fishers take the lead in guarding their ancestral waters, building long-term marine conservation from the bottom up.
+              </p>
+              <span class="btn-card">READ THE FULL STORY</span>
+            </div>
+          </a>
+
+          <a href="https://act.gp/shiptour-people-th" target="_blank" rel="noopener" class="story-card" draggable="false">
+            <div class="story-card-image">
+              <img
+                src="https://www.greenpeace.org/static/planet4-thailand-stateless/2026/08/81797eaf-0w1a1790-1024x683.jpg"
+                onerror="this.onerror=null; this.src='https://www.greenpeace.org/static/planet4-international-stateless/2026/09/c7b99bf8-gp0stwcsi.jpg';"
+                alt="Chana-Thepa Coastal Community Marine Conservation"
+                loading="lazy"
+                draggable="false"
+              >
+            </div>
+            <div class="story-card-body">
+              <span class="story-category">THAILAND / COASTAL CONSERVATION</span>
+              <h3 class="story-card-title">
+                Chana-Thepa Coastal Community Marine Conservation
+              </h3>
+              <p class="story-card-excerpt">
+                Local artisanal fishers in Chana and Thepa unite to protect fertile waters and community food security against megaproject threats.
+              </p>
+              <span class="btn-card">READ THE FULL STORY</span>
+            </div>
+          </a>
+
+          <a href="https://act.gp/shiptour-people-sea" target="_blank" rel="noopener" class="story-card" draggable="false">
+            <div class="story-card-image">
+              <img
+                src="https://www.greenpeace.org/static/planet4-international-stateless/2026/06/8d3f2eac-gp1suubn.jpg"
+                onerror="this.onerror=null; this.src='https://www.greenpeace.org/static/planet4-international-stateless/2026/09/c7b99bf8-gp0stwcsi.jpg';"
+                alt="Indigenous resistance in pictures"
+                loading="lazy"
+                draggable="false"
+              >
+            </div>
+            <div class="story-card-body">
+              <span class="story-category">SOUTHEAST ASIA / INDIGENOUS RESISTANCE</span>
+              <h3 class="story-card-title">
+                Indigenous Resistance in Pictures: Communities Defending Their Rights
+              </h3>
+              <p class="story-card-excerpt">
+                Communities across Southeast Asia stand firm, defending their rights and protecting their land from destructive extraction.
+              </p>
+              <span class="btn-card">READ THE FULL STORY</span>
+            </div>
+          </a>
+
+          <a href="https://act.gp/shiptour-people-id" target="_blank" rel="noopener" class="story-card" draggable="false">
+            <div class="story-card-image">
+              <img
+                src="https://www.greenpeace.org/static/planet4-indonesia-stateless/2025/12/39e67abc-gp1szthd_low-res-800px.jpg"
+                onerror="this.onerror=null; this.src='https://www.greenpeace.org/static/planet4-international-stateless/2026/09/c7b99bf8-gp0stwcsi.jpg';"
+                alt="Understanding fossil gas methane and LNG"
+                loading="lazy"
+                draggable="false"
+              >
+            </div>
+            <div class="story-card-body">
+              <span class="story-category">INDONESIA / FOSSIL GAS</span>
+              <h3 class="story-card-title">
+                Understanding Fossil Gas: Methane and LNG
+              </h3>
+              <p class="story-card-excerpt">
+                How methane and LNG threaten the environment, and why Indonesian communities are on the front lines in rejecting them.
+              </p>
+              <span class="btn-card">READ THE FULL STORY</span>
+            </div>
+          </a>
+
+          </div>
+        </div>
+
+        <button type="button" class="people-arrow-btn people-arrow-next" id="peopleNextBtn" aria-label="Next story" title="Next story">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+
+      <div class="carousel-progress-wrap" id="carouselProgressWrap" role="slider" aria-label="Stories slide position" tabindex="0" title="Click or drag to slide stories">
+        <div class="carousel-progress-bar" id="carouselProgressBar"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="pattern-strip-section" aria-hidden="true"></div>
+
+  <section class="message-section" id="message">
+    <div class="message-section-inner">
+      <div class="message-header">
+        <h2 class="message-title">Send a Message of Hope</h2>
+      </div>
+
+      <iframe
+        id="hubspotFormIframe"
+        src="https://c3zx4.share.hsforms.com/2yzlkpHa6R9iI8gbON-thdA"
+        width="100%"
+        height="760"
+        scrolling="no"
+        frameborder="0"
+        style="border: none; box-shadow: none; background: transparent; width: 100%; display: block; overflow: hidden;"
+        title="Message Form"
+        loading="lazy">
+      </iframe>
+
+      <div class="thankyou-section" id="thankyouSection">
+        <div class="thankyou-banner">
+          <span class="thankyou-tag">✔ Thank you message</span>
+          <h3 class="thankyou-title">Your e-postcard has been collected!</h3>
+          <p class="thankyou-desc">
+            Your solidarity makes all the difference. We’re making sure your message reaches the front lines to remind them many of you have their back. Thank you for sending your support.
+          </p>
+        </div>
+
+        <div class="user-postcard-preview-wrap">
+          <div class="preview-header-label">Your E-Postcard (Click to Share & Support):</div>
+          <div class="postcard-container postcard-display" id="userPostcardDisplay" onclick="openCurrentUserModal()" title="Click to view and share">
+            <div class="postcard-left">
+              <label class="postcard-label">MESSAGE</label>
+              <div class="postcard-message-display" id="userMessageDisplay"></div>
+            </div>
+            <div class="postcard-right">
+              <div class="stamp-wrap">
+                <div class="stamp-box">
+                  <img class="stamp-img" id="userStampImg" src="https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/a5117197-issue-accents-forest.png" alt="Issue icon">
+                </div>
+              </div>
+              <div class="display-meta-group">
+                <div class="display-field">
+                  <span class="display-field-label">NAME</span>
+                  <span class="display-field-val" id="userNameDisplay"></span>
+                </div>
+                <div class="display-field">
+                  <span class="display-field-label">COUNTRY</span>
+                  <span class="display-field-val" id="userCountryDisplay"></span>
+                </div>
+                <div class="display-field">
+                  <span class="display-field-label">RECIPIENT</span>
+                  <span class="display-field-val" id="userRecipientDisplay"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="click-share-callout">👆 Click your postcard above to share solidarity & support Greenpeace work</span>
+          </div>
+          <div>
+            <button type="button" class="btn-blue btn-send-another" onclick="resetPostcardForm()">SEND ANOTHER POSTCARD</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee-outer-wrap" id="marqueeOuterWrap">
+        <button type="button" class="marquee-arrow marquee-arrow-prev" id="marqueePrevBtn" aria-label="Previous message" title="Previous message">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg>
+        </button>
+        <div class="marquee-container" id="marqueeContainer">
+          <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
+        <button type="button" class="marquee-arrow marquee-arrow-next" id="marqueeNextBtn" aria-label="Next message" title="Next message">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" fill="currentColor"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="carriers-section" id="carriers" style="background-color: #0038ff !important; padding: 85px 0 115px !important; color: #ffffff !important; display: block !important; position: relative !important; z-index: 10 !important; width: 100% !important;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
+      <div class="carriers-title-wrap" style="text-align: center; margin-bottom: 46px;">
+        <h2 class="carriers-title" style="font-family: var(--font-display); font-size: clamp(2.6rem, 5.2vw, 4rem); font-weight: 900; color: #b4f000 !important; letter-spacing: -0.02em; line-height: 1.1; margin: 0 auto;">Meet the Story Carriers</h2>
+      </div>
+
+      <div class="carriers-grid">
+        <article class="carrier-card">
+          <div class="carrier-avatar carrier-avatar-th"></div>
+          <div class="carrier-name-row">
+            <h3 class="carrier-name">Chana–Thepha, Songkhla</h3>
+            <svg class="carrier-flag" viewBox="0 0 36 24" role="img" aria-label="Flag of Thailand">
+              <rect width="36" height="4" fill="#A51931"></rect>
+              <rect y="4" width="36" height="4" fill="#F4F5F8"></rect>
+              <rect y="8" width="36" height="8" fill="#2D2A4A"></rect>
+              <rect y="16" width="36" height="4" fill="#F4F5F8"></rect>
+              <rect y="20" width="36" height="4" fill="#A51931"></rect>
+            </svg>
+          </div>
+          <p class="carrier-headline">Caring for the Sea That Feeds a Community</p>
+          <p class="carrier-bio">"In Chana and Thepha, small-scale fishers use local knowledge to care for marine habitats and sustain the food their families depend on. Their conservation work supports healthy seas and recognition of communities' role in managing their coast."</p>
+          <a href="https://www.greenpeace.org/thailand/tag/coastal-community/" target="_blank" rel="noopener" class="carrier-readmore">Read More</a>
+        </article>
+
+        <article class="carrier-card">
+          <div class="carrier-avatar carrier-avatar-my"></div>
+          <div class="carrier-name-row">
+            <h3 class="carrier-name">Kudat, Sabah</h3>
+            <svg class="carrier-flag" viewBox="0 0 36 24" role="img" aria-label="Flag of Malaysia">
+              <rect width="36" height="24" fill="#CC0000"></rect>
+              <rect y="1.71" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="5.14" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="8.57" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="12" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="15.43" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="18.86" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect y="22.29" width="36" height="1.71" fill="#FFFFFF"></rect>
+              <rect width="18" height="13.7" fill="#000066"></rect>
+              <circle cx="8.5" cy="6.85" r="4.6" fill="#FFCC00"></circle>
+              <circle cx="10" cy="6.85" r="4" fill="#000066"></circle>
+              <polygon points="12.5,6.85 13.8,5.5 13.6,6.85 15.1,6.1 14.2,7.2 15.6,7.5 14.2,8 14.9,9.2 13.6,8.5 13.4,10 12.6,8.9 11.4,9.9 11.9,8.5 10.6,9 11.4,7.8 10.1,7.3 11.5,7 10.8,5.7 12,6.5 12.6,5" fill="#FFCC00"></polygon>
+            </svg>
+          </div>
+          <p class="carrier-headline">Communities Shaping the Future of Sabah's Coast</p>
+          <p class="carrier-bio">"In Kudat, coastal communities restore coral, protect turtles and support women's participation in community life. They are also asking for a stronger voice in development decisions affecting their homes and livelihoods around Sabah's Tun Mustapha Park."</p>
+          <a href="https://www.greenpeace.org/malaysia/category/community-and-activism/" target="_blank" rel="noopener" class="carrier-readmore">Read More</a>
+        </article>
+
+        <article class="carrier-card">
+          <div class="carrier-avatar carrier-avatar-ph"></div>
+          <div class="carrier-name-row">
+            <h3 class="carrier-name">Bohol</h3>
+            <svg class="carrier-flag" viewBox="0 0 36 24" role="img" aria-label="Flag of Philippines">
+              <rect width="36" height="12" fill="#0038A8"></rect>
+              <rect y="12" width="36" height="12" fill="#CE1126"></rect>
+              <polygon points="0,0 18,12 0,24" fill="#FFFFFF"></polygon>
+              <circle cx="6" cy="12" r="2.6" fill="#FCD116"></circle>
+              <path d="M6 7.8v8.4M1.8 12h8.4M3 9l6 6M3 15l6-6" stroke="#FCD116" stroke-width="0.8"></path>
+              <polygon points="2.5,3.2 3.1,4.4 4.4,4.4 3.3,5.1 3.7,6.3 2.5,5.5 1.3,6.3 1.7,5.1 0.6,4.4 1.9,4.4" fill="#FCD116"></polygon>
+              <polygon points="2.5,20.8 3.1,19.6 4.4,19.6 3.3,18.9 3.7,17.7 2.5,18.5 1.3,17.7 1.7,18.9 0.6,19.6 1.9,19.6" fill="#FCD116"></polygon>
+              <polygon points="14.5,12 13.6,12.7 13.9,13.8 12.9,13.1 11.9,13.8 12.3,12.7 11.4,12 12.5,12 12.9,10.8 13.2,12" fill="#FCD116"></polygon>
+            </svg>
+          </div>
+          <p class="carrier-headline">Bohol Fishing Families Stand for Climate Justice</p>
+          <p class="carrier-bio">"In Bohol, fishing families face rising fuel costs that affect their livelihoods. Meet Trixy Elle and Arnold Obguia, whose communities are using solar power and whose experiences are part of a wider call for climate justice."</p>
+          <a href="https://www.greenpeace.org/philippines/our-work/communities/" target="_blank" rel="noopener" class="carrier-readmore">Read More</a>
+        </article>
+
+        <article class="carrier-card">
+          <div class="carrier-avatar carrier-avatar-id"></div>
+          <div class="carrier-name-row">
+            <h3 class="carrier-name">Sira &amp; Manggroholo, Papua</h3>
+            <svg class="carrier-flag" viewBox="0 0 36 24" role="img" aria-label="Flag of Indonesia">
+              <rect width="36" height="12" fill="#E70011"></rect>
+              <rect y="12" width="36" height="12" fill="#FFFFFF"></rect>
+            </svg>
+          </div>
+          <p class="carrier-headline">Learning from Papua's Forest Guardians</p>
+          <p class="carrier-bio">"In Sira and Manggroholo, Indigenous communities shared forest knowledge with young people at the Forest Defender Camp. The gathering brought people together to learn from local forest guardians and exchange experiences of protecting their land and way of life."</p>
+          <a href="https://www.greenpeace.org/indonesia/aktivisme/" target="_blank" rel="noopener" class="carrier-readmore">Read More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="share-modal-overlay" id="shareModalOverlay" onclick="closeShareModal(event)">
+    <div class="share-modal-dialog" onclick="event.stopPropagation()">
+      <button type="button" class="modal-close-btn" onclick="closeShareModal()" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-postcard-preview" id="modalPostcardPreview">
+        <img src="https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg" alt="Postcard Background" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1;" crossorigin="anonymous">
+      </div>
+
+      <div class="modal-action-box">
+        <a href="https://give.seasia.greenpeace.org/malaysia/protect-your-home-with-greenpeace-sout-east-asia-donate/" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-support-work">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Support Greenpeace Work
+        </a>
+
+        <button type="button" id="btnDownloadPostcard" class="btn-download-postcard" onclick="downloadCurrentPostcard()">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          <span>Unduh Gambar Kartu Pos</span>
+        </button>
+
+        <div class="modal-share-heading">Share this message to amplify hope:</div>
+        <div class="social-share-buttons">
+          <button type="button" id="shareBtnWhatsapp" class="btn-social btn-whatsapp" onclick="shareToWhatsApp()" title="Share via WhatsApp" style="cursor:pointer;">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.03C9.33 7.03 9 7.11 8.73 7.41C8.45 7.71 7.68 8.44 7.68 9.91C7.68 11.38 8.75 12.8 8.9 13C9.05 13.2 11 16.21 13.97 17.49C14.67 17.8 15.22 17.98 15.65 18.11C16.36 18.34 17 18.31 17.5 18.23C18.08 18.15 19.28 17.5 19.53 16.82C19.78 16.14 19.78 15.55 19.7 15.43C19.63 15.31 19.43 15.24 19.13 15.09C18.83 14.94 17.38 14.22 17.1 14.12C16.83 14.02 16.63 13.97 16.43 14.27C16.23 14.57 15.65 15.24 15.48 15.44C15.3 15.64 15.13 15.67 14.83 15.52C14.53 15.37 13.56 15.05 12.41 14.03C11.52 13.24 10.91 12.26 10.74 11.96C10.56 11.66 10.71 11.51 10.87 11.35C11 11.21 11.17 11 11.32 10.82C11.47 10.65 11.52 10.52 11.62 10.32C11.72 10.12 11.67 9.95 11.6 9.8C11.52 9.65 10.95 8.24 10.7 7.67C10.47 7.11 10.24 7.18 10.05 7.17C9.9 7.16 9.7 7.03 9.53 7.03Z"/></svg>
+            <span>WhatsApp</span>
+          </button>
+
+          <button type="button" id="shareBtnInstagram" class="btn-social btn-instagram" onclick="shareToInstagram()" title="Share on Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>Instagram</span>
+          </button>
+
+          <button type="button" id="shareBtnX" class="btn-social btn-x" onclick="shareToX()" title="Share on X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </button>
+
+          <button type="button" id="shareBtnThreads" class="btn-social btn-threads" onclick="shareToThreads()" title="Share on Threads">
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Threads_2026_logo.svg/250px-Threads_2026_logo.svg.png" alt="Threads">
+            <span>Threads</span>
+          </button>
+        </div>
+
+        <div class="share-arrows-row">
+          <button type="button" class="share-arrow share-arrow-prev" id="sharePrevBtn" aria-label="Previous message" title="Previous message">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg>
+          </button>
+          <div class="prefilled-share-box">
+            <span class="prefilled-caption-title">Prefilled Share Text:</span>
+            <p class="prefilled-caption-text" id="prefilledShareText"></p>
+          </div>
+          <button type="button" class="share-arrow share-arrow-next" id="shareNextBtn" aria-label="Next message" title="Next message">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-toast" id="copyToast">Caption copied to clipboard!</div>
+  </div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
