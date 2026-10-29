@@ -392,8 +392,9 @@
     const DEFAULT_ICON = OCEAN_ICON;
 
     function resolveIcon(imageValue) {
-      if (!imageValue) return DEFAULT_ICON;
+      if (imageValue === '' || imageValue === null || imageValue === undefined) return null;
       const key = String(imageValue).trim();
+      if (!key) return null;
       if (ISSUE_ICON_MAP[key]) return ISSUE_ICON_MAP[key];
       const lower = key.toLowerCase();
       if (lower.includes('climate') || lower.includes('climat')) return ISSUE_ICON_MAP['Issue-Accents-Climate-Justice.png'];
@@ -521,9 +522,12 @@
         if (nameBox.length >= 1) nameBox[0].textContent = post.name || '';
         if (nameBox.length >= 2) nameBox[1].textContent = post.country || '';
         if (nameBox.length >= 3) nameBox[2].textContent = post.recipient || '';
-        const imgUrl = resolveIcon(post.image || '');
+        const imgUrl = resolveIcon(post.image);
         const stampImg = preview.querySelector('.stamp-box img');
-        if (stampImg) stampImg.src = imgUrl;
+        if (stampImg) {
+          stampImg.style.display = imgUrl ? '' : 'none';
+          if (imgUrl) stampImg.src = imgUrl;
+        }
         activeModalPostcard = post;
         const prefilled = document.getElementById('prefilledShareText');
         if (prefilled) prefilled.innerText = getBioText(post);
@@ -649,7 +653,7 @@
             <div class="m-card-message">${escapeHtml(item.message)}</div>
           </div>
           <div class="m-card-right">
-            <div class="m-stamp-wrap">
+            <div class="m-stamp-wrap" ${resolveIcon(item.image) ? '' : 'style="display:none"'}>
               <div class="m-stamp">
                 <img src="${resolveIcon(item.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
               </div>
@@ -722,7 +726,11 @@
       document.getElementById('userCountryDisplay').innerText = country;
       document.getElementById('userRecipientDisplay').innerText = recipient;
       const userStampImg = document.getElementById('userStampImg');
-      if (userStampImg) userStampImg.src = resolveIcon(image);
+      if (userStampImg) {
+        const iconSrc = resolveIcon(image);
+        userStampImg.style.display = iconSrc ? '' : 'none';
+        if (iconSrc) userStampImg.src = iconSrc;
+      }
 
       const thankyouSection = document.getElementById('thankyouSection');
       thankyouSection.style.display = 'block';
@@ -1228,7 +1236,7 @@
               <div class="postcard-message-display" style="font-size:0.9rem; padding:12px 14px;">${escapeHtml(data.message)}</div>
             </div>
             <div class="postcard-right">
-              <div class="stamp-wrap">
+              <div class="stamp-wrap" ${iconBlobUrl ? '' : (resolveIcon(data.image) ? '' : 'style="display:none"')}>
                 <div class="stamp-box" style="width:52px; height:62px;">
                   <img src="${iconBlobUrl || resolveIcon(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
                 </div>
