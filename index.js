@@ -370,11 +370,11 @@
     const SCRIPT_POST_URL = 'https://script.google.com/macros/s/AKfycbw8_ZoHFc7YNzaD72BTth2SAViTxRIjWGtScl1_fANkgCm0HO95j81N_F58U6ERoeflyA/exec';
     const SCRIPT_GET_URL  = 'https://script.google.com/macros/s/AKfycbw8_ZoHFc7YNzaD72BTth2SAViTxRIjWGtScl1_fANkgCm0HO95j81N_F58U6ERoeflyA/exec?action=get';
 
-    // LOCAL paths for canvas drawing (CORS-safe)
-    const CLIMATE_ICON = './assets/icons/climate.png';
-    const ENERGY_ICON  = './assets/icons/energy.png';
-    const FOREST_ICON  = './assets/icons/forest.png';
-    const OCEAN_ICON   = './assets/icons/ocean.png';
+    // CDN URLs for both canvas (via fetch+blob) and preview (direct <img src>)
+    const CLIMATE_ICON = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/7dc979d1-issue-accents-climate-justice.png';
+    const ENERGY_ICON  = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/44979689-issue-accents-energy.png';
+    const FOREST_ICON  = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/a5117197-issue-accents-forest.png';
+    const OCEAN_ICON   = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/be74725d-issue-accents-ocean.png';
     const ISSUE_ICON_MAP = {
       'Issue-Accents-Climate-Justice.png': CLIMATE_ICON,
       'Issue-Accents-Energy.png':          ENERGY_ICON,
@@ -391,27 +391,6 @@
     };
     const DEFAULT_ICON = OCEAN_ICON;
 
-    // Remote CDN URLs for preview/display (where browser can load them)
-    const CLIMATE_ICON_URL = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/7dc979d1-issue-accents-climate-justice.png';
-    const ENERGY_ICON_URL  = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/44979689-issue-accents-energy.png';
-    const FOREST_ICON_URL  = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/a5117197-issue-accents-forest.png';
-    const OCEAN_ICON_URL   = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/be74725d-issue-accents-ocean.png';
-    const ISSUE_ICON_URL_MAP = {
-      'Issue-Accents-Climate-Justice.png': CLIMATE_ICON_URL,
-      'Issue-Accents-Energy.png':          ENERGY_ICON_URL,
-      'Issue-Accents-Forest.png':          FOREST_ICON_URL,
-      'Issue-Accents-Ocean.png':           OCEAN_ICON_URL,
-      'issue-accents-ocean.png':           OCEAN_ICON_URL,
-      'issue-accents-forest.png':          FOREST_ICON_URL,
-      'issue-accents-energy.png':          ENERGY_ICON_URL,
-      'issue-accents-climate-justice.png': CLIMATE_ICON_URL,
-      'be74725d-issue-accents-ocean.png':  OCEAN_ICON_URL,
-      'a5117197-issue-accents-forest.png': FOREST_ICON_URL,
-      '44979689-issue-accents-energy.png': ENERGY_ICON_URL,
-      '7dc979d1-issue-accents-climate-justice.png': CLIMATE_ICON_URL,
-    };
-    const DEFAULT_ICON_URL = OCEAN_ICON_URL;
-
     function resolveIcon(imageValue) {
       if (!imageValue) return DEFAULT_ICON;
       const key = String(imageValue).trim();
@@ -423,19 +402,6 @@
       if (lower.includes('ocean'))   return ISSUE_ICON_MAP['Issue-Accents-Ocean.png'];
       if (key.startsWith('http'))    return ISSUE_ICON_MAP[key] || DEFAULT_ICON;
       return DEFAULT_ICON;
-    }
-
-    function resolveIconUrl(imageValue) {
-      if (!imageValue) return DEFAULT_ICON_URL;
-      const key = String(imageValue).trim();
-      if (ISSUE_ICON_URL_MAP[key]) return ISSUE_ICON_URL_MAP[key];
-      const lower = key.toLowerCase();
-      if (lower.includes('climate') || lower.includes('climat')) return ISSUE_ICON_URL_MAP['Issue-Accents-Climate-Justice.png'];
-      if (lower.includes('energy'))  return ISSUE_ICON_URL_MAP['Issue-Accents-Energy.png'];
-      if (lower.includes('forest'))  return ISSUE_ICON_URL_MAP['Issue-Accents-Forest.png'];
-      if (lower.includes('ocean'))   return ISSUE_ICON_URL_MAP['Issue-Accents-Ocean.png'];
-      if (key.startsWith('http'))    return ISSUE_ICON_URL_MAP[key] || DEFAULT_ICON_URL;
-      return DEFAULT_ICON_URL;
     }
 
     let communityPostcards = [];
@@ -555,7 +521,7 @@
         if (nameBox.length >= 1) nameBox[0].textContent = post.name || '';
         if (nameBox.length >= 2) nameBox[1].textContent = post.country || '';
         if (nameBox.length >= 3) nameBox[2].textContent = post.recipient || '';
-        const imgUrl = resolveIconUrl(post.image || '');
+        const imgUrl = resolveIcon(post.image || '');
         const stampImg = preview.querySelector('.stamp-box img');
         if (stampImg) stampImg.src = imgUrl;
         activeModalPostcard = post;
@@ -685,7 +651,7 @@
           <div class="m-card-right">
             <div class="m-stamp-wrap">
               <div class="m-stamp">
-                <img src="${resolveIconUrl(item.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
+                <img src="${resolveIcon(item.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
               </div>
             </div>
             <div class="m-form-group">
@@ -756,7 +722,7 @@
       document.getElementById('userCountryDisplay').innerText = country;
       document.getElementById('userRecipientDisplay').innerText = recipient;
       const userStampImg = document.getElementById('userStampImg');
-      if (userStampImg) userStampImg.src = resolveIconUrl(image);
+      if (userStampImg) userStampImg.src = resolveIcon(image);
 
       const thankyouSection = document.getElementById('thankyouSection');
       thankyouSection.style.display = 'block';
@@ -784,14 +750,45 @@
       }
     }
 
+    // Cache for blob URLs so we don't refetch the same image
+    const _blobCache = {};
+
+    function resolveBlobUrl(url) {
+      if (!url) return null;
+      if (_blobCache[url]) return _blobCache[url];
+      const blobUrl = URL.createObjectURL(new Blob([], { type: 'application/octet-stream' }));
+      // will be replaced once fetch completes
+      fetch(url).then(r => { if (r.ok) return r.blob(); throw new Error('fetch failed'); })
+        .then(blob => {
+          URL.revokeObjectURL(blobUrl);
+          const realUrl = URL.createObjectURL(blob);
+          _blobCache[url] = realUrl;
+        })
+        .catch(() => {});
+      return blobUrl;
+    }
+
     function loadImg(src) {
       return new Promise((resolve) => {
         if (!src) return resolve(null);
+        // If it's already a blob URL (same-origin, canvas-safe), load directly
+        if (src.startsWith('blob:')) {
+          const img = new Image();
+          img.onload  = () => resolve(img);
+          img.onerror = () => resolve(null);
+          img.src = src;
+          return;
+        }
+        // For remote URLs, convert to blob URL first (canvas-safe)
+        const blobUrl = resolveBlobUrl(src);
+        if (!blobUrl) return resolve(null);
         const img = new Image();
-        img.crossOrigin = 'anonymous';
         img.onload  = () => resolve(img);
-        img.onerror = () => resolve(null);
-        img.src = src;
+        img.onerror = () => {
+          URL.revokeObjectURL(blobUrl);
+          resolve(null);
+        };
+        img.src = blobUrl;
       });
     }
 
@@ -909,8 +906,8 @@
       canvas.height = H;
       const ctx = canvas.getContext('2d');
 
-      // Local paths for canvas (CORS-safe) — preview modal uses CDN URLs via resolveIconUrl()
-      const bgUrl = './assets/postcard-bg.jpg';
+      // Remote URLs — loadImg() converts them to blob URLs so canvas stays clean
+      const bgUrl = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg';
       const iconUrl = resolveIcon(data && data.image);
 
       return Promise.all([loadImg(bgUrl), loadImg(iconUrl)]).then(([bgImg, iconImg]) => {
@@ -1027,7 +1024,7 @@
     }
 
     function renderPostcardImage(data) {
-      return generatePostcardCanvas(data).then(canvas => canvas.toDataURL('image/png')).catch(() => './postcard-bg.png');
+      return generatePostcardCanvas(data).then(canvas => canvas.toDataURL('image/png')).catch(() => null);
     }
 
     function downloadCurrentPostcard() {
@@ -1231,7 +1228,7 @@
             <div class="postcard-right">
               <div class="stamp-wrap">
                 <div class="stamp-box" style="width:52px; height:62px;">
-                  <img src="${resolveIconUrl(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
+                  <img src="${resolveIcon(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
                 </div>
               </div>
               <div class="m-form-group" style="margin-top:8px;">
