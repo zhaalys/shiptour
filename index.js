@@ -1224,35 +1224,49 @@
       const overlay = document.getElementById('shareModalOverlay');
       if (!preview || !overlay) return;
       if (data && data.message !== undefined) {
+        // Get or create background image
+        let bgImg = preview.querySelector('img');
+        if (!bgImg) {
+          bgImg = document.createElement('img');
+          bgImg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1;';
+          preview.insertBefore(bgImg, preview.firstChild);
+        }
         const bgBlobUrl = _renderCache['https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg'];
-        const iconBlobUrl = _renderCache[resolveIcon(data.image)];
-        preview.innerHTML = `
-          <img src="${bgBlobUrl || 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg'}"
-               alt="Postcard Background"
-               style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1;">
-          <div class="modal-postcard-container">
-            <div class="postcard-left">
-              <label class="postcard-label" style="font-size:0.8rem; margin-bottom:4px;">MESSAGE*</label>
-              <div class="postcard-message-display" style="font-size:0.9rem; padding:12px 14px;">${escapeHtml(data.message)}</div>
+        bgImg.src = bgBlobUrl || 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg';
+
+        // Get or create container
+        let container = preview.querySelector('.modal-postcard-container');
+        if (!container) {
+          container = document.createElement('div');
+          container.className = 'modal-postcard-container';
+          preview.appendChild(container);
+        }
+
+        const iconSrc = resolveIcon(data.image);
+        const iconBlobUrl = iconSrc ? _renderCache[iconSrc] : null;
+
+        container.innerHTML = `
+          <div class="postcard-left">
+            <label class="postcard-label" style="font-size:0.8rem; margin-bottom:4px;">MESSAGE*</label>
+            <div class="postcard-message-display" style="font-size:0.9rem; padding:12px 14px;">${escapeHtml(data.message)}</div>
+          </div>
+          <div class="postcard-right">
+            <div class="stamp-wrap" style="${iconSrc ? '' : 'display:none'}">
+              <div class="stamp-box" style="width:52px; height:62px;">
+                <img src="${iconBlobUrl || iconSrc || ''}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
+              </div>
             </div>
-            <div class="postcard-right">
-              <div class="stamp-wrap" ${iconBlobUrl ? '' : (resolveIcon(data.image) ? '' : 'style="display:none"')}>
-                <div class="stamp-box" style="width:52px; height:62px;">
-                  <img src="${iconBlobUrl || resolveIcon(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
-                </div>
-              </div>
-              <div class="m-form-group" style="margin-top:8px;">
-                <span class="m-field-label" style="font-size:0.75rem;">NAME*</span>
-                <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.name)}</div>
-              </div>
-              <div class="m-form-group" style="margin-top:6px;">
-                <span class="m-field-label" style="font-size:0.75rem;">COUNTRY*</span>
-                <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.country)}</div>
-              </div>
-              <div class="m-form-group" style="margin-top:6px;">
-                <span class="m-field-label" style="font-size:0.75rem;">RECIPIENT</span>
-                <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.recipient || '')}</div>
-              </div>
+            <div class="m-form-group" style="margin-top:8px;">
+              <span class="m-field-label" style="font-size:0.75rem;">NAME*</span>
+              <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.name)}</div>
+            </div>
+            <div class="m-form-group" style="margin-top:6px;">
+              <span class="m-field-label" style="font-size:0.75rem;">COUNTRY*</span>
+              <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.country)}</div>
+            </div>
+            <div class="m-form-group" style="margin-top:6px;">
+              <span class="m-field-label" style="font-size:0.75rem;">RECIPIENT</span>
+              <div class="m-field-box" style="height:32px; font-size:0.88rem; padding:0 10px;">${escapeHtml(data.recipient || '')}</div>
             </div>
           </div>
         `;
