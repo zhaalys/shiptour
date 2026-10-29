@@ -750,40 +750,6 @@
       }
     }
 
-    // Cache for blob URLs so we don't refetch the same image
-    const _blobCache = {};
-
-    function loadImg(src) {
-      return new Promise((resolve) => {
-        if (!src) return resolve(null);
-
-        // If already cached as blob URL, load directly
-        if (_blobCache[src]) {
-          const img = new Image();
-          img.onload  = () => resolve(img);
-          img.onerror = () => resolve(null);
-          img.src = _blobCache[src];
-          return;
-        }
-
-        // For remote URLs: fetch first, create blob URL, then load image
-        fetch(src)
-          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
-          .then(blob => {
-            const blobUrl = URL.createObjectURL(blob);
-            _blobCache[src] = blobUrl;
-            const img = new Image();
-            img.onload  = () => resolve(img);
-            img.onerror = () => {
-              URL.revokeObjectURL(blobUrl);
-              resolve(null);
-            };
-            img.src = blobUrl;
-          })
-          .catch(() => resolve(null));
-      });
-    }
-
     function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
       const words = String(text || '').split(/\s+/);
       let line = '', lines = 0;
@@ -1002,17 +968,32 @@
     }
 
     async function getPostcardBlob(data) {
-      // Always use canvas generation to ensure pixel-perfect match
-      return generatePostcardCanvas(data).then(canvas => {
-        return new Promise((resolve) => {
-          canvas.toBlob(blob => {
-            resolve(blob);
-          }, 'image/png');
+      // Open modal, populate with correct remote images, then screenshot via html2canvas
+      openShareModal(data);
+      const preview = document.getElementById('modalPostcardPreview');
+      if (!preview) return null;
+
+      // Wait for images to load
+      const imgs = preview.querySelectorAll('img');
+      await Promise.all(Array.from(imgs).map(img =>
+        new Promise(r => img.complete ? r() : img.onload = img.onerror = r)
+      ));
+      await new Promise(r => setTimeout(r, 150));
+
+      try {
+        const canvas = await html2canvas(preview, {
+          useCORS: true,
+          allowTaint: false,
+          backgroundColor: null,
+          scale: 2
         });
-      }).catch(err => {
-        console.error('getPostcardBlob error:', err);
-        return null;
-      });
+        return new Promise(resolve => canvas.toBlob(b => resolve(b), 'image/png'));
+      } catch (e) {
+        console.error('html2canvas failed, falling back to procedural canvas:', e);
+        return generatePostcardCanvas(data).then(canvas =>
+          new Promise(r => canvas.toBlob(b => r(b), 'image/png'))
+        ).catch(() => null);
+      }
     }
 
     function renderPostcardImage(data) {
@@ -1205,13 +1186,42 @@
       });
     }
 
+    // Pre-fetch background + icons so html2canvas can render them
+    const _renderCache = {};
+    async function ensureRendered(url) {
+      if (_renderCache[url]) return _renderCache[url];
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const blob = await r.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      _renderCache[url] = blobUrl;
+      return blobUrl;
+    }
+
+    const _CDN_BG = 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg';
+    const _CDN_ICONS = [
+      'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/be74725d-issue-accents-ocean.png',
+      'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/a5117197-issue-accents-forest.png',
+      'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/44979689-issue-accents-energy.png',
+      'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/7dc979d1-issue-accents-climate-justice.png',
+    ];
+
+    Promise.all(_CDN_ICONS.map(ensureRendered)).then(() => {
+      ensureRendered(_CDN_BG).catch(() => {});
+    }).catch(() => {});
+
     function openShareModal(data) {
       activeModalPostcard = data;
       const preview = document.getElementById('modalPostcardPreview');
       const overlay = document.getElementById('shareModalOverlay');
       if (!preview || !overlay) return;
       if (data && data.message !== undefined) {
+        const bgBlobUrl = _renderCache['https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg'];
+        const iconBlobUrl = _renderCache[resolveIcon(data.image)];
         preview.innerHTML = `
+          <img src="${bgBlobUrl || 'https://www.greenpeace.org/static/planet4-indonesia-stateless/2026/10/1443eee0-sea_ship-tour-2026-2027-05-postcard.jpg'}"
+               alt="Postcard Background"
+               style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1;">
           <div class="modal-postcard-container">
             <div class="postcard-left">
               <label class="postcard-label" style="font-size:0.8rem; margin-bottom:4px;">MESSAGE*</label>
@@ -1220,7 +1230,7 @@
             <div class="postcard-right">
               <div class="stamp-wrap">
                 <div class="stamp-box" style="width:52px; height:62px;">
-                  <img src="${resolveIcon(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
+                  <img src="${iconBlobUrl || resolveIcon(data.image)}" alt="issue icon" style="width:100%;height:100%;object-fit:contain;display:block;">
                 </div>
               </div>
               <div class="m-form-group" style="margin-top:8px;">
